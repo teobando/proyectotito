@@ -4,16 +4,25 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+import java.awt.*;
+import java.util.ArrayList;
+import javax.swing.*;
 /**
  *
  * @author Tito
  */
 public class ListaHabitaciones extends javax.swing.JFrame {
+    
+    Reservacion reservacion = new Reservacion(); 
+    FondoPanel fondo = new FondoPanel();
+   
 
     /**
      * Creates new form ListaDeHabitacion
      */
     public ListaHabitaciones() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -26,34 +35,18 @@ public class ListaHabitaciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new FondoPanel();
+        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableHabitaciones1 = new javax.swing.JTable();
+        jTableReservaciones = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Habitaciónes ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(255, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Habitaciones Reservadas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 18), new java.awt.Color(204, 204, 204))); // NOI18N
 
-        jTableHabitaciones1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTableHabitaciones1);
-
-        jButton1.setText("Mostrar Habitaciones Reservadas");
-
-        jButton2.setText("Mostrar Habitaciones Disponibles");
-
+        jButton3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,37 +54,69 @@ public class ListaHabitaciones extends javax.swing.JFrame {
             }
         });
 
+        jTableReservaciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jTableReservaciones.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jTableReservaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nombre", "Cedula", "Teléfono", "Número", "Tipo", "Estado", "Fecha", "Costo por noche"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableReservaciones);
+
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Eliminar reservación");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Eliminar Todo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(jButton3)))
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(298, 298, 298))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,8 +132,8 @@ public class ListaHabitaciones extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,6 +144,54 @@ public class ListaHabitaciones extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       int fila = this.jTableReservaciones.getSelectedRow();
+       if(fila >=0){
+           String numeracion = reservacion.listaReservaciones.get(fila).getHabitacion().getNumeracion();
+           CancelacionReservacion(numeracion);
+           reservacion.listaReservaciones.remove(fila);
+           reservaciones();
+       }else{
+          JOptionPane.showMessageDialog(null,"Selecciona una fila"); 
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int contador = this.jTableReservaciones.getRowCount();
+        for(int i=contador-1; i>=0; i--){
+            String numeracion = reservacion.listaReservaciones.get(i).getHabitacion().getNumeracion();
+            CancelacionReservacion(numeracion);
+            reservacion.listaReservaciones.remove(i);
+        }
+        reservaciones();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void CancelacionReservacion(String numeracion){
+        for (int i=0; i<reservacion.registro.hotel.getListaHabitaciones().size();i++){
+            if(numeracion.equals(reservacion.registro.hotel.getListaHabitaciones().get(i).getNumeracion())){
+                reservacion.registro.hotel.getListaHabitaciones().get(i).setEstado("Disponible");
+            }
+        }
+    }
+    public void reservaciones(){
+        String Vector[][]= new String[reservacion.listaReservaciones.size()][8];
+        for (int i= 0; i<reservacion.listaReservaciones.size(); i++){
+            Vector[i][0]=reservacion.listaReservaciones.get(i).getCliente().getNombre();
+            Vector[i][1]=reservacion.listaReservaciones.get(i).getCliente().getCedula();
+            Vector[i][2]=reservacion.listaReservaciones.get(i).getCliente().getTelefono();
+            Vector[i][3]=reservacion.listaReservaciones.get(i).getHabitacion().getNumeracion();
+            Vector[i][4]=reservacion.listaReservaciones.get(i).getHabitacion().getTipo();
+            Vector[i][5]=reservacion.listaReservaciones.get(i).getHabitacion().getEstado();
+            Vector[i][6]=reservacion.listaReservaciones.get(i).getFecha().toString();
+            Vector[i][7]=String.valueOf(reservacion.listaReservaciones.get(i).getHabitacion().getCosto());       
+        }
+        this.jTableReservaciones.setModel(new javax.swing.table.DefaultTableModel(
+                Vector, new String [] { "Nombre", "Cedula", "Teléfono", "Número", "Tipo", "Estado", 
+                    "Fecha","Costo por noche"}
+        ));
+    }
     /**
      * @param args the command line arguments
      */
@@ -161,6 +234,16 @@ public class ListaHabitaciones extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTableHabitaciones1;
+    private javax.swing.JTable jTableReservaciones;
     // End of variables declaration//GEN-END:variables
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/Imagenes/36779.jpg")).getImage();
+            g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

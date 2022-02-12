@@ -1,23 +1,43 @@
 //Clase que crea las habitaciones y las permite reservar
 package hotel;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Tito
  */
-public class Habitacion {
+public class Habitacion implements Serializable{
     //Atributos 
     private String numeracion;
     private String tipo; 
     private String estado;
+    private float costo;
+    
     //Contructor 
-
     public Habitacion(String numeracion, String tipo, String estado) {
         this.numeracion = numeracion;
         this.tipo = tipo;
         this.estado = estado;
+        costoHabitacion(); 
     }
-    
+     
+    private void costoHabitacion(){
+        if (this.getTipo().equals("Suit")){
+            this.setCosto((float) 60.5);
+        }
+        if(this.getTipo().equals("Individual")){
+            this.setCosto((float) 15.5);
+        }
+        if(this.getTipo().equals("Matrimonial")){
+            this.setCosto((float) 20.8);
+        }
+        if(this.getTipo().equals("Familiar")){
+            this.setCosto((float) 25.8);
+        }
+           
+
+    }
     // Metodos getter y setter
 
     /**
@@ -62,6 +82,21 @@ public class Habitacion {
         this.estado = estado;
     }
 
+    /**
+     * @return the costo
+     */
+    public float getCosto() {
+        return costo;
+    }
+
+    /**
+     * @param costo the costo to set
+     */
+    public void setCosto(float costo) {
+        this.costo = costo;
+    }
+    
+    
 
     
     

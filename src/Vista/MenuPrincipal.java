@@ -4,16 +4,24 @@
  */
 package Vista;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Tito
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    
+    ListaHabitaciones Habitaciones = new ListaHabitaciones();
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -27,72 +35,92 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new FondoPanel();
         jLabel1 = new javax.swing.JLabel();
         RegistroHabitacion = new javax.swing.JButton();
-        ReservaHabitacion = new javax.swing.JButton();
-        HabitacionesRegitradas = new javax.swing.JButton();
+        ReservarHabitacion = new javax.swing.JButton();
+        HabitacionesRegitradas1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu Principal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 18), new java.awt.Color(255, 0, 0))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
         jLabel1.setText("Escoga una de las opciones ");
 
-        RegistroHabitacion.setText("Registrar una habitación");
+        RegistroHabitacion.setBackground(new java.awt.Color(0, 102, 255));
+        RegistroHabitacion.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        RegistroHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        RegistroHabitacion.setText("Registrar habitaciónes");
+        RegistroHabitacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         RegistroHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegistroHabitacionActionPerformed(evt);
             }
         });
 
-        ReservaHabitacion.setText("Reservar una habitación");
-        ReservaHabitacion.addActionListener(new java.awt.event.ActionListener() {
+        ReservarHabitacion.setBackground(new java.awt.Color(0, 102, 255));
+        ReservarHabitacion.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        ReservarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        ReservarHabitacion.setText("Reservar una habitacion");
+        ReservarHabitacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ReservarHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReservaHabitacionActionPerformed(evt);
+                ReservarHabitacionActionPerformed(evt);
             }
         });
 
-        HabitacionesRegitradas.setText("Habitaciones Registradas");
-        HabitacionesRegitradas.addActionListener(new java.awt.event.ActionListener() {
+        HabitacionesRegitradas1.setBackground(new java.awt.Color(0, 102, 255));
+        HabitacionesRegitradas1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        HabitacionesRegitradas1.setForeground(new java.awt.Color(255, 255, 255));
+        HabitacionesRegitradas1.setText("Habitaciones reservadas");
+        HabitacionesRegitradas1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        HabitacionesRegitradas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HabitacionesRegitradasActionPerformed(evt);
+                HabitacionesRegitradas1ActionPerformed(evt);
             }
         });
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setText("MENÚ PRINCIPAL ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ReservaHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(RegistroHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(HabitacionesRegitradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(107, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ReservarHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                        .addComponent(RegistroHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(HabitacionesRegitradas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addContainerGap(515, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
+                .addGap(23, 23, 23)
                 .addComponent(RegistroHabitacion)
-                .addGap(18, 18, 18)
-                .addComponent(ReservaHabitacion)
-                .addGap(18, 18, 18)
-                .addComponent(HabitacionesRegitradas)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ReservarHabitacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(HabitacionesRegitradas1)
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,15 +129,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,24 +145,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void RegistroHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroHabitacionActionPerformed
         // TODO add your handling code here:
-        RegistroHabitacion Vista = new RegistroHabitacion();
-        Vista.setTitle(" Regitrar una habitacion");
-        Vista.setVisible(true);
+        this.Habitaciones.reservacion.registro.mostrar();
+        this.Habitaciones.reservacion.registro.setTitle("Registro de habitaciones");
+        this.Habitaciones.reservacion.registro.setVisible(true);
     }//GEN-LAST:event_RegistroHabitacionActionPerformed
-
-    private void ReservaHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservaHabitacionActionPerformed
-        // TODO add your handling code here:
-        Reservacion Vista = new Reservacion();
-        Vista.setTitle("Reservación de una habitaciones");
-        Vista.setVisible(true);
-    }//GEN-LAST:event_ReservaHabitacionActionPerformed
  
-    private void HabitacionesRegitradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HabitacionesRegitradasActionPerformed
+    private void ReservarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarHabitacionActionPerformed
         // TODO add your handling code here:
-        ListaHabitaciones Vista = new ListaHabitaciones();
-        Vista.setTitle("Habitaciones Regitradas");
-        Vista.setVisible(true);
-    }//GEN-LAST:event_HabitacionesRegitradasActionPerformed
+        this.Habitaciones.reservacion.mostrar();
+        this.Habitaciones.reservacion.setTitle("Reservación de habitaciones");
+        this.Habitaciones.reservacion.setVisible(true);
+    }//GEN-LAST:event_ReservarHabitacionActionPerformed
+
+    private void HabitacionesRegitradas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HabitacionesRegitradas1ActionPerformed
+        // TODO add your handling code here:
+        this.Habitaciones.reservaciones();
+        this.Habitaciones.setTitle("Lista de habitaciones reservadas");
+        this.Habitaciones.setVisible(true);
+    }//GEN-LAST:event_HabitacionesRegitradas1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,11 +200,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton HabitacionesRegitradas;
+    private javax.swing.JButton HabitacionesRegitradas1;
     private javax.swing.JButton RegistroHabitacion;
-    private javax.swing.JButton ReservaHabitacion;
+    private javax.swing.JButton ReservarHabitacion;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/Imagenes/hoteleria2015.jpg")).getImage();
+            g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

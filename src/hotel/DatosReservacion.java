@@ -9,14 +9,21 @@ public class DatosReservacion {
     //Atribtos 
     private Fecha fecha;
     private Cliente cliente; 
-    private Habitacion habitacion; 
+    private Habitacion habitacion;
     
-    //Constructor 
-    public DatosReservacion(Fecha fecha, Cliente cliente) {
-        this.fecha = fecha;
-        this.cliente = cliente;
+    //Constructor con parametros 
+    public DatosReservacion(String nombre, String cedula, String telefono, String numeracion,
+            String tipo, String estado, String dia, String mes, String anio) {
+        
+        //Inicializacion de los onjetos que componen a datos de reervacion. 
+        this.fecha = new Fecha(dia,mes,anio);
+        this.cliente = new Cliente(nombre,cedula,telefono);
+        this.habitacion = new Habitacion(numeracion,tipo,estado);
     }
 
+
+        
+    // Metodos Getters y Setters
     /**
      * @return the fecha
      */
@@ -59,9 +66,5 @@ public class DatosReservacion {
         this.habitacion = habitacion;
     }
     
-    
-    
-    
-    
-    
+  
 }

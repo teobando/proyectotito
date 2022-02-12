@@ -17,8 +17,6 @@ public class Cliente {
         this.cedula = cedula;
         this.telefono = telefono;
     }
-    
-    
     //Metodos Getter y setter
 
     /**

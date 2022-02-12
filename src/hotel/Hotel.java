@@ -18,8 +18,8 @@ public class Hotel {
         this.NombreHotel=" HOTEL PATRIOTICO";
         this.Ruc="0296537341001";
     }
-    public void HotelAdd(String numeracion, String tipo){
-        Habitacion habitacion = new Habitacion (numeracion,tipo,"Disponible");
+    public void HotelAdd(String numeracion, String tipo, String estado){
+        Habitacion habitacion = new Habitacion (numeracion,tipo,estado);
         listaHabitaciones.add(habitacion);
     }
 
